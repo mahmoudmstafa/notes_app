@@ -6,7 +6,7 @@ import 'package:notes_app/views/notes_view.dart';
 
 void main()
 {
-  runApp(NotesApp()) ;
+  runApp(const NotesApp()) ;
 }
 class NotesApp extends StatelessWidget {
   const NotesApp({super.key});
@@ -19,6 +19,12 @@ class NotesApp extends StatelessWidget {
         fontFamily: 'Poppins',
         brightness: Brightness.dark ,
       ),
+      builder: (context, child) {
+        return GestureDetector(
+          onTap: () => FocusScope.of(context).unfocus(),
+            child: child ,
+        );
+      },
       home: const NotesView(),
     );
   }
